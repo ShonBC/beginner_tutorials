@@ -12,6 +12,13 @@
 #include "ros/ros.h"
 #include "beginner_tutorials/ChangeTalker.h"
 
+/**
+ * @brief Server method to take the request parameter and set the response parameter equal to it.
+ * 
+ * @param req The input parameter 
+ * @param res The returned parameter
+ * @return true Once the response has been set equal to the request.
+ */
 bool ChangeString(beginner_tutorials::ChangeTalker::Request &req,
                         beginner_tutorials::ChangeTalker::Response &res) {
     res.new_string = req.desired_string;
