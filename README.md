@@ -1,13 +1,13 @@
 # beginner_tutorials
 ROS tutorials
 
-## Prerequisites:
+# Prerequisites:
 - Ubuntu 18.04
 - ROS Melodic
 - ROS Beginner tutorials installed:
     sudo apt-get install ros-melodic-ros-tutorials
 
-## Build and Run:
+# Build and Run:
 Clone the repo in the src folder of a catkin workspace.
 
     git clone https://github.com/ShonBC/beginner_tutorials.git
@@ -23,6 +23,7 @@ If the workspace was created using catkin build then run:
     catkin build
     . ~/catkin_ws/devel/setup.bash
 
+## Publisher and Subscriber
 Open terminal and initiate a ROS Master:
 
     roscore
@@ -34,3 +35,13 @@ Open a new terminal and initiate the publisher node:
 Open a new terminal and initiate the subscriber node:
 
     rosrun beginner_tutorials listener 
+
+## ROS Service
+This service will allow for user input to define the message being published to the "chatter" topic. 
+To launch the client and server(which also acts as a publisher) run:
+
+    roslaunch beginner_tutorials change.launch my_args:="<Publisher_message>"
+
+This launches the server and client/publisher that will publish a default message if no arguments are passed. It also launches the listener node which is getting the new user defined message published to the chatter topic.
+
+The rqt_console and logger_level screenshots can be found in the docs/rqt_console directory. 
