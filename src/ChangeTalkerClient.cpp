@@ -36,6 +36,8 @@ int main(int argc, char **argv) {
                             i = words.begin(); i != words.end(); ++i) {
             srv.request.desired_string += *i + " ";
         }
+    ROS_DEBUG_STREAM("argc: " << argc << " argv: " << argv
+                            << "New message: " << srv.request.desired_string);
     } else if (argc < 2) {
         srv.request.desired_string = "Default message. No arguments passed.";
         } else {
@@ -56,30 +58,15 @@ int main(int argc, char **argv) {
 
     int count = 0;
     while (ros::ok()) {
-        std_msgs::String msg;
-        // ros::ServiceClient client = n.serviceClient
-        //         <beginner_tutorials::ChangeTalker>("change_talker");
-        // beginner_tutorials::ChangeTalker srv;
-        // if (argc > 2) {
-        // std::vector<std::string> words(argv +1, argv + argc);
-
-        // for (std::vector<std::string>::const_iterator
-        //                     i = words.begin(); i != words.end(); ++i) {
-        //     srv.request.desired_string += *i + " ";
-        // }
-        // } else if (argc < 2) {
-        //     srv.request.desired_string = "Default message. No arguments passed.";
-        //     } else {
-        //     srv.request.desired_string = argv[1];
-        // }
-
-
+        ROS_DEBUG_STREAM("Began publishing loop.");
         if (client.call(srv)) {
             ROS_INFO_STREAM("Publishing: " << srv.response.new_string);
-        } else {
-            ROS_ERROR_STREAM("Failed to call service change_talker");
-            return 1;
+            } else {
+                ROS_ERROR_STREAM("Failed to call service change_talker");
+        return 1;
         }
+
+        std_msgs::String msg;
 
         std::stringstream ss;
         ss << srv.response.new_string << count;
