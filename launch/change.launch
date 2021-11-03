@@ -2,8 +2,12 @@
    <node pkg="beginner_tutorials" type="change_talker_server" name="change_talker_server">
        
    </node> 
-   <arg name="my_args"/>
+   <arg name="my_args" default=""/>
    <node pkg="beginner_tutorials" type="change_talker_client" name="change_talker_client" output="screen" args="$(arg my_args)">
        
+   </node>
+
+   <node pkg="beginner_tutorials" type="listener" name="listener" output="screen" launch-prefix="gnome-terminal --command">
+      
    </node>
 </launch>
