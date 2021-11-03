@@ -44,23 +44,18 @@ int main(int argc, char **argv) {
         srv.request.desired_string = argv[1];
     }
 
-
-    // if (client.call(srv)) {
-    //     ROS_INFO_STREAM("Publishing: " << srv.response.new_string);
-    // } else {
-    //     ROS_ERROR_STREAM("Failed to call service change_talker");
-    //     return 1;
-    // }
-
     ros::Publisher chatter_pub = n.advertise<std_msgs::String>("chatter", 1000);
 
     ros::Rate loop_rate(10);
 
     int count = 0;
+    // Begin publisher loop
     while (ros::ok()) {
         ROS_DEBUG_STREAM("Began publishing loop.");
+
+        // Call the server
         if (client.call(srv)) {
-            ROS_INFO_STREAM("Publishing: " << srv.response.new_string);
+            ROS_INFO_STREAM("SRV Publishing: " << srv.response.new_string);
             } else {
                 ROS_ERROR_STREAM("Failed to call service change_talker");
         return 1;
