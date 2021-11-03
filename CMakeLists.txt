@@ -209,3 +209,11 @@ add_dependencies(talker beginner_tutorials_generate_messages_cpp ${catkin_EXPORT
 add_executable(listener src/listener.cpp)
 target_link_libraries(listener ${catkin_LIBRARIES})
 add_dependencies(listener beginner_tutorials_generate_messages_cpp ${catkin_EXPORTED_TARGETS})
+
+add_executable(change_talker_server src/ChangeTalkerServer.cpp)
+target_link_libraries(change_talker_server ${catkin_LIBRARIES})
+add_dependencies(change_talker_server beginner_tutorials_gencpp)
+
+add_executable(change_talker_client src/ChangeTalkerClient.cpp)
+target_link_libraries(change_talker_client ${catkin_LIBRARIES})
+add_dependencies(change_talker_client beginner_tutorials_gencpp)
