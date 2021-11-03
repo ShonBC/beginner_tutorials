@@ -1,3 +1,8 @@
+[src/ChangeTalkerClient.cpp:15]: (information) Include file: "ros/ros.h" not found.
+[src/ChangeTalkerClient.cpp:16]: (information) Include file: "std_msgs/String.h" not found.
+[src/ChangeTalkerClient.cpp:17]: (information) Include file: "beginner_tutorials/ChangeTalker.h" not found.
+[src/ChangeTalkerServer.cpp:12]: (information) Include file: "ros/ros.h" not found.
+[src/ChangeTalkerServer.cpp:13]: (information) Include file: "beginner_tutorials/ChangeTalker.h" not found.
 [src/listener.cpp:29]: (information) Include file: "ros/ros.h" not found.
 [src/listener.cpp:30]: (information) Include file: "std_msgs/String.h" not found.
 [src/talker.cpp:31]: (information) Include file: "ros/ros.h" not found.
