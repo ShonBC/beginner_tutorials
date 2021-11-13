@@ -13,6 +13,7 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   message_generation
   message_runtime
+  tf
 )
 
 ## System dependencies are found with CMake's conventions
@@ -116,7 +117,10 @@ catkin_package(
 
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
-include_directories(include ${catkin_INCLUDE_DIRS})
+include_directories(
+  # include 
+  ${catkin_INCLUDE_DIRS}
+  )
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
@@ -190,16 +194,6 @@ include_directories(include ${catkin_INCLUDE_DIRS})
 #   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 # )
 
-#############
-## Testing ##
-#############
-
-## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_beginner_tutorials.cpp)
-# if(TARGET ${PROJECT_NAME}-test)
-#   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
-# endif()
-
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
 add_executable(talker src/talker.cpp)
@@ -217,3 +211,31 @@ add_dependencies(change_talker_server beginner_tutorials_gencpp)
 add_executable(change_talker_client src/ChangeTalkerClient.cpp)
 target_link_libraries(change_talker_client ${catkin_LIBRARIES})
 add_dependencies(change_talker_client beginner_tutorials_gencpp)
+
+add_executable(tf_talker src/TFTalker.cpp)
+target_link_libraries(tf_talker ${catkin_LIBRARIES})
+add_dependencies(tf_talker beginner_tutorials_gencpp)
+
+
+#############
+## Testing ##
+#############
+
+# Add gtest based cpp test target and link libraries
+if(CATKIN_ENABLE_TESTING)
+  find_package(rostest REQUIRED)
+
+  add_rostest_gtest(service_test
+  test/beginner_tutorials.test
+  test/service_test.cpp
+  )
+  target_link_libraries(
+    service_test
+  ${catkin_LIBRARIES}
+  )
+  add_dependencies(
+    service_test
+  ${PROJECT_NAME}_generate_messages_cpp
+  ${catkin_EXPORTED_TARGETS}
+  )
+endif()
