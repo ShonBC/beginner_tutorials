@@ -16,6 +16,10 @@
 
 std::shared_ptr<ros::NodeHandle> nh;
 
+/**
+ * @brief Construct a new TEST object. Test if response is equal to the request.
+ * 
+ */
 TEST(TF_TALKER_TEST, tf_talker) {
     ros::ServiceClient client = nh->serviceClient<
                         beginner_tutorials::ChangeTalker>(
