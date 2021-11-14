@@ -7,3 +7,4 @@
 [src/listener.cpp:30]: (information) Include file: "std_msgs/String.h" not found.
 [src/talker.cpp:31]: (information) Include file: "ros/ros.h" not found.
 [src/talker.cpp:34]: (information) Include file: "std_msgs/String.h" not found.
+[test/service_test.cpp:15]: (information) Include file: "beginner_tutorials/ChangeTalker.h" not found.

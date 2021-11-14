@@ -3,3 +3,4 @@ Done processing ./src/ChangeTalkerServer.cpp
 Done processing ./src/TFTalker.cpp
 Done processing ./src/listener.cpp
 Done processing ./src/talker.cpp
+Done processing ./test/service_test.cpp
