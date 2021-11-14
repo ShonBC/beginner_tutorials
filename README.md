@@ -57,3 +57,17 @@ To run tests, navigate to the root of the catkin workspace and run:
 To run the ROS test files run:
 
     rostest beginner_tutorials beginner_tutorials.test 
+
+## Recording Bag File
+By default the change.launch file will not record a bag file. To run the nodes with a custom published message and record a bag file run:
+
+    roslaunch beginner_tutorials change.launch ros_bag:="true" my_args:="<Custom message>"
+
+The bag file will be recorded in the docs/bag directory. To play the bag file back and see the published messages first run the listener node:
+
+    rosrun beginner_tutorials listener
+
+In a new terminal navigate to the bag directory in the docs folder and run:
+
+    roscd beginner_tutorials/docs/bag
+    rosbag play bag_file.bag
