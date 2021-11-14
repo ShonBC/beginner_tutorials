@@ -23,7 +23,7 @@ If the catkin workspace was created using catkin_make then navigate to the catki
 If the workspace was created using catkin build then run:
 
     catkin build
-    . ~/catkin_ws/devel/setup.bash
+    . ~/<catkin_ws_directory_name>/devel/setup.bash
 
 ## Publisher and Subscriber
 Open terminal and initiate a ROS Master:
@@ -47,3 +47,13 @@ To launch the client and server(which also acts as a publisher) run:
 This launches the server and client/publisher that will publish a default message if no arguments are passed. It also launches the listener node which is getting the new user defined message published to the chatter topic.
 
 The rqt_console and logger_level screenshots can be found in the docs/rqt_console directory. 
+
+## ROS Tests
+To run tests, navigate to the root of the catkin workspace and run:
+
+    catkin_make tests
+    catkin_make test
+
+To run the ROS test files run:
+
+    rostest beginner_tutorials beginner_tutorials.test 
