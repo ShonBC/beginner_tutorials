@@ -40,12 +40,12 @@ TEST(SERVICE_TEST, service_change) {
   beginner_tutorials::ChangeTalker srv;
   srv.request.desired_string = "testing";
   client.call(srv);
-  EXPECT_EQ("teting", srv.response.new_string);
+  EXPECT_EQ("testing", srv.response.new_string);
 }
 
 int main(int argc, char **argv) {
+  ros::init(argc, argv, "service_test");
+  nh.reset(new ros::NodeHandle);
   testing::InitGoogleTest(&argc, argv);
-  ros::init(argc, argv, "tester");
-  ros::NodeHandle nh;
   return RUN_ALL_TESTS();
 }
