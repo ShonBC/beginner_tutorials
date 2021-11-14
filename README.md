@@ -46,7 +46,27 @@ To launch the client and server(which also acts as a publisher) run:
 
 This launches the server and client/publisher that will publish a default message if no arguments are passed. It also launches the listener node which is getting the new user defined message published to the chatter topic.
 
-The rqt_console and logger_level screenshots can be found in the docs/rqt_console directory. 
+The rqt_console and logger_level screenshots can be found in the [docs/rqt_console](docs/rqt_console) directory. 
+
+## TF Frames
+To demonstrate the broadcasting of frames, a node was designed to broadcast the transformation from the /world frame to a /talk frame which has been offset by a translation and rotation. To run this node open a terminal and run:
+
+    rosrun beginner_tutorials tf_talker
+
+To view the transformations in the terminal simply run:
+
+    rosrun tf tf_echo /world /talk
+
+To view the reference frames tree open a new terminal while the tf_talker node is active and run:
+
+    rosrun rqt_tf_tree rqt_tf_tree
+
+To save a pdf copy of the active nodes reference frame tree run:
+
+    rosrun tf view_frames 
+    evince frames.pdf 
+
+An example output can be found in the [docs/tf_view_frames directory](docs/tf_view_frames)
 
 ## ROS Tests
 To run tests, navigate to the root of the catkin workspace and run:
@@ -63,7 +83,7 @@ By default the change.launch file will not record a bag file. To run the nodes w
 
     roslaunch beginner_tutorials change.launch ros_bag:="true" my_args:="<Custom message>"
 
-The bag file will be recorded in the docs/bag directory. To play the bag file back and see the published messages first run the listener node:
+The bag file will be recorded in the [docs/bag](docs/bag) directory. To play the bag file back and see the published messages first run the listener node:
 
     rosrun beginner_tutorials listener
 
