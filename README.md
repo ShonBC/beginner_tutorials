@@ -66,7 +66,7 @@ To save a pdf copy of the active nodes reference frame tree run:
     rosrun tf view_frames 
     evince frames.pdf 
 
-An example output can be found in the [docs/tf_view_frames directory](docs/tf_view_frames)
+An example output can be found in the [docs/tf_view_frames](docs/tf_view_frames) directory.
 
 ## ROS Tests
 To run tests, navigate to the root of the catkin workspace and run:
@@ -83,11 +83,15 @@ By default the change.launch file will not record a bag file. To run the nodes w
 
     roslaunch beginner_tutorials change.launch ros_bag:="true" my_args:="<Custom message>"
 
-The bag file will be recorded in the [docs/bag](docs/bag) directory. To play the bag file back and see the published messages first run the listener node:
+The bag file will be recorded in the [docs/bag](docs/bag) directory. To examine the bag file first navigate into the [docs/bag](docs/bag) directory in a terminal and run:
+
+    rosbag info bag_file.bag
+
+To play the bag file back and see the published messages first run the listener node:
 
     rosrun beginner_tutorials listener
 
-In a new terminal navigate to the bag directory in the docs folder and run:
+In a new terminal navigate to the [docs/bag](docs/bag) directory and run:
 
     roscd beginner_tutorials/docs/bag
     rosbag play bag_file.bag
