@@ -17,17 +17,30 @@
 std::shared_ptr<ros::NodeHandle> nh;
 
 /**
+ * @brief Construct a new TEST object. Checks if ROS service client exists.
+ * 
+ */
+TEST(SERVICE_TEST, service_exists) {
+  ros::ServiceClient client = nh->serviceClient<
+                        beginner_tutorials::ChangeTalker>(
+      "change_talker");
+
+  bool exists(client.waitForExistence(ros::Duration(1)));
+  EXPECT_TRUE(exists);
+}
+
+/**
  * @brief Construct a new TEST object. Test if response is equal to the request.
  * 
  */
-TEST(TF_TALKER_TEST, tf_talker) {
+TEST(SERVICE_TEST, service_test) {
     ros::ServiceClient client = nh->serviceClient<
                         beginner_tutorials::ChangeTalker>(
-      "SrvChgStr");
+      "change_talker");
   beginner_tutorials::ChangeTalker srv;
   srv.request.desired_string = "testing";
   client.call(srv);
-  EXPECT_EQ("testing", srv.response.new_string);
+  EXPECT_EQ("teting", srv.response.new_string);
 }
 
 int main(int argc, char **argv) {
