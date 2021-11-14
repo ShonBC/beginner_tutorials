@@ -1,4 +1,4 @@
 <launch>
-    <node pkg = "beginner_tutorials" type = "ChangeTalkerServer" name = "server_node"/>
+    <node pkg="beginner_tutorials" type="change_talker_server" name="change_talker_server"/>
     <test pkg="beginner_tutorials" test-name="service_test" type="service_test"/>
 </launch>
