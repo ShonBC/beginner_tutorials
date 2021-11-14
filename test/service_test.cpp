@@ -33,7 +33,7 @@ TEST(SERVICE_TEST, service_exists) {
  * @brief Construct a new TEST object. Test if response is equal to the request.
  * 
  */
-TEST(SERVICE_TEST, service_test) {
+TEST(SERVICE_TEST, service_change) {
     ros::ServiceClient client = nh->serviceClient<
                         beginner_tutorials::ChangeTalker>(
       "change_talker");
